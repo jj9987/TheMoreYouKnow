@@ -1,0 +1,108 @@
+﻿<Page
+    x:Class="TheMoreYouKnow.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TheMoreYouKnow"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style x:Key="ButtonStyle1" TargetType="Button">
+            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+            <Setter Property="BorderBrush" Value="{ThemeResource SystemControlForegroundTransparentBrush}"/>
+            <Setter Property="BorderThickness" Value="{ThemeResource ButtonBorderThemeThickness}"/>
+            <Setter Property="Padding" Value="8,4,8,4"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseMediumLowBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseHighBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="RootGrid">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundBaseMediumLowBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightTransparentBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseHighBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerDownThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="RootGrid">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledBaseLowBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledTransparentBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter x:Name="ContentPresenter" AutomationProperties.AccessibilityView="Raw" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" TextWrapping="WrapWholeWords"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+        <Button x:Name="b_SEX" Content="STUFF!" HorizontalAlignment="Center"  VerticalAlignment="Center"
+                FontSize="110" Click="b_SEX_Click" RenderTransformOrigin="0.683,0.473" Visibility="Visible" FontWeight="Bold" FontFamily="Impact">
+            <Button.Projection>
+                <PlaneProjection RotationX="-14.159" RotationY="26.54" RotationZ="-4.519"/>
+            </Button.Projection>
+        </Button>
+        <Button x:Name="b_title" Content="The More You Know About" HorizontalAlignment="Center" Margin="3,109,0,0" VerticalAlignment="Top" FontSize="25"  Visibility="Visible" FontFamily="MV Boli"/>
+        <Button x:Name="b_score" Content="The More You Know" HorizontalAlignment="Center"
+                Margin="0,109,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="MV Boli" Visibility="Collapsed"/>
+
+
+
+        <TextBlock x:Name="b_q" Text=""  HorizontalAlignment="Center" RenderTransformOrigin="0.683,0.473" VerticalAlignment="Top" Margin="0,180,0,0" TextWrapping="WrapWholeWords"  Width="800" Height="200" FontSize="40" Visibility="Visible" TextAlignment="Center"/>
+        <TextBlock x:Name="b_answer" Text="" HorizontalAlignment="Center" RenderTransformOrigin="0.683,0.473" VerticalAlignment="Bottom" Margin="285,0,299,0" Width="440" Height="400" TextWrapping="WrapWholeWords" FontSize="40" Visibility="Collapsed" TextAlignment="Center"/>
+        <Button x:Name="b_A" Content="A" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-430,500,20,0" Width="400" Height="120" FontSize="{ThemeResource TextStyleExtraLargeFontSize}" Click="b_A_Click" Visibility="Collapsed" Style="{StaticResource ButtonStyle1}"/>
+        <Button x:Name="b_B" Content="B" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="430,500,20,0" Width="400" Height="120" FontSize="{ThemeResource TextStyleExtraLargeFontSize}" Click="b_B_Click" Visibility="Collapsed" Style="{StaticResource ButtonStyle1}"/>
+        <Button x:Name="b_C" Content="C" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-430,200,20,0" Width="400" Height="120" FontSize="{ThemeResource TextStyleExtraLargeFontSize}" Click="b_C_Click" Visibility="Collapsed" Style="{StaticResource ButtonStyle1}"/>
+        <Button x:Name="b_D" Content="D" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="430,200,20,0" Width="400" Height="120" FontSize="{ThemeResource TextStyleExtraLargeFontSize}" Click="b_D_Click" Visibility="Collapsed" Style="{StaticResource ButtonStyle1}"/>
+        <TextBlock x:Name="b_reason" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="215,350,20,10"/>
+        <Button x:Name="b_newgame" Content="New Question!" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="35" Margin="122,0,122,20" Click="b_newgame_Click" Visibility="Collapsed"/>
+        <TextBlock x:Name="Instructions" Text="Press the box to continue" HorizontalAlignment="Center" Visibility ="Visible" VerticalAlignment="Center" FontSize="30" Margin="0,400,0,0"/>
+
+    </Grid>
+</Page>
